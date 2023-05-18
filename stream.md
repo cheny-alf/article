@@ -1,5 +1,6 @@
 # godis中Stream实现
 
+首先，我们先来看看redis stream 使用：推荐阅读文章"[挑战Kafka！Redis5.0重量级特性Stream尝鲜](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653549949&idx=1&sn=7f6c4cf8642478574718ed0f8cf61409&chksm=813a64e5b64dedf357cef4e2894e33a75e3ae51575a4e3211c1da23008ef79173962e9a83c73&mpshare=1&scene=1&srcid=0717FcpVc16q9rNa0yfF78FU#rd "超链接title")"<br>
 我们使用哈希链表来实现队列，它将队列划分为多个哈希桶，并使用链表将桶中的元素连接在一起。这个数据结构在Redis里面就是使用的Hashmap + Linkedlist结构实现的。
 
 在Go语言中实现这个数据结构的话，我们可以使用一个哈希表和一个双端链表来实现。哈希表中的每个键对应的值都是一个双端链表，每个节点代表一个Redis Stream的元素。
